@@ -785,7 +785,7 @@ Pros:
 * Able to work in an offline environment and can be updated once the program has internet access
 * Can be started up by pressing on the 'Windows' key and typing 'Calendar'/'Mail'
 * Only for Windows 8/10
-* Able to visualise whether there is a conflict in timeslot
+* Able to visualise whether there is a conflict in time slot
 * Able to postpone the event
 
 Cons:
