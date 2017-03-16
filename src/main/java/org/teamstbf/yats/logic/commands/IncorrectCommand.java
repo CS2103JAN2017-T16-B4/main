@@ -13,6 +13,10 @@ public class IncorrectCommand extends Command {
         this.feedbackToUser = feedbackToUser;
     }
 
+    public boolean isListMutating() {
+    	return false;
+    }
+    
     @Override
     public CommandResult execute() throws CommandException {
         throw new CommandException(feedbackToUser);

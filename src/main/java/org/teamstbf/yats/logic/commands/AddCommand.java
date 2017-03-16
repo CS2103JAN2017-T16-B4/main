@@ -71,6 +71,10 @@ public class AddCommand extends Command {
         }
         this.toAdd = new Event(parameters, new UniqueTagList(tagSet));
     }
+    
+    public boolean isListMutating() {
+    	return true;
+    }
 
     @Override
     public CommandResult execute() throws CommandException {

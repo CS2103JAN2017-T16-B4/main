@@ -26,6 +26,10 @@ public class SelectCommand extends Command {
     public SelectCommand(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+    
+    public boolean isListMutating() {
+    	return false;
+    }
 
     @Override
     public CommandResult execute() throws CommandException {

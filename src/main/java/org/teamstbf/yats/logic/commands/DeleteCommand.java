@@ -26,7 +26,10 @@ public class DeleteCommand extends Command {
         this.targetIndex = targetIndex;
     }
 
-
+    public boolean isListMutating() {
+    	return true;
+    }
+    
     @Override
     public CommandResult execute() throws CommandException {
 

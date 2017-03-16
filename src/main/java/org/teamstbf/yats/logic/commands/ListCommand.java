@@ -15,6 +15,10 @@ public class ListCommand extends Command {
 	public static final String COMMAND_WORD_SUFFIX_TAG = "tag";
 
 	public static final String MESSAGE_SUCCESS = "Listed all tasks";
+	
+    public boolean isListMutating() {
+    	return false;
+    }
 
 	public CommandResult execute() {
 		model.updateFilteredListToShowAll();
