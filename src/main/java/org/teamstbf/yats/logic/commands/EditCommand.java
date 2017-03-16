@@ -117,7 +117,7 @@ public class EditCommand extends Command {
 			this.location = toCopy.getLocation();
 			this.deadline = toCopy.getDeadline();
 			this.startTime = toCopy.getStartTime();
-			this.endTime = toCopy.getStartTime();
+			this.endTime = toCopy.getEndTime();
 			this.description = toCopy.getDescription();
 			this.periodic = toCopy.getPeriodic();
 			this.tags = toCopy.getTags();
