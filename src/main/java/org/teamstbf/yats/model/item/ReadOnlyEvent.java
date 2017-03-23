@@ -27,7 +27,7 @@ public interface ReadOnlyEvent {
 
 	Title getTitle();
 
-	Date getDeadline();
+	SimpleDate getDeadline();
 
 	Description getDescription();
 
