@@ -1,6 +1,6 @@
 package org.teamstbf.yats.testutil;
 
-import org.teamstbf.yats.model.item.Date;
+import org.teamstbf.yats.model.item.SimpleDate;
 import org.teamstbf.yats.model.item.Description;
 import org.teamstbf.yats.model.item.Location;
 import org.teamstbf.yats.model.item.Periodic;
@@ -53,7 +53,7 @@ public class TestEvent implements ReadOnlyEvent {
 	}
 
 	@Override
-	public Date getDeadline() {
+	public SimpleDate getDeadline() {
 		// TODO Auto-generated method stub
 		return null;
 	}

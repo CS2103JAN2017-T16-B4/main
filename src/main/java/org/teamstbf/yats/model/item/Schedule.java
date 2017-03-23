@@ -6,7 +6,7 @@ public class Schedule {
 
 	public static final String MESSAGE_TIME_CONSTRAINTS = "cannot include 2 or more commas in time/date entry";
 	private Timing time;
-	private Date date;
+	private SimpleDate date;
 	public String value;
 
 	/**
@@ -24,22 +24,35 @@ public class Schedule {
 		}
 		if (stringArray.equals(" ")) {
 			this.time = new Timing(" ");
-			this.date = new Date(" ");
+			this.date = new SimpleDate(" ");
 		}
 		if (stringArray.length == 1) {
 			if (stringArray[0].contains("m")) {
 				this.time = new Timing(stringArray[0]);
-				this.date = new Date(" ");
+				this.date = new SimpleDate(" ");
 			} else {
 				this.time = new Timing(" ");
-				this.date = new Date(stringArray[0]);
+				this.date = new SimpleDate(stringArray[0]);
 			}
 			this.value = stringArray[0];
 		} else {
 			this.time = new Timing(stringArray[0]);
-			this.date = new Date(stringArray[1]);
+			this.date = new SimpleDate(stringArray[1]);
 			this.value = timetoparse;
 		}
+	}
+	
+	public Schedule(String timing, String date) throws IllegalValueException {
+	    if (timing != null) {
+	        this.time = new Timing(timing);
+	    } else {
+	        this.time = new Timing(" ");
+	    }
+        if (date != null) {
+            this.date = new SimpleDate(date);
+        } else {
+            this.date = new SimpleDate(" ");
+        }
 	}
 
 	@Override
@@ -51,7 +64,7 @@ public class Schedule {
 																					// check
 	}
 
-	public Date getDate() {
+	public SimpleDate getDate() {
 		return this.date;
 	}
 
@@ -68,7 +81,7 @@ public class Schedule {
 		return time.hashCode();
 	}
 
-	public void setDate(Date endTime) {
+	public void setDate(SimpleDate endTime) {
 		this.date = endTime;
 	}
 
