@@ -1,57 +1,33 @@
 package org.teamstbf.yats.model.item;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.teamstbf.yats.commons.exceptions.IllegalValueException;
 
 public class Schedule {
 
-	public static final String MESSAGE_TIME_CONSTRAINTS = "cannot include 2 or more commas in time/date entry";
-	private Timing time;
-	private Date date;
-	public String value;
+	public static final String MESSAGE_TIME_ERROR = "Invalid or empty date/time entry";
+	public static final String STRING_EMPTY = "";
+	private Date scheduleDate;
 
-	/**
-	 * Represents an Event schedule in TaskManager. Values cannot be null
-	 *
-	 * @param startTime
-	 * @param endTime
-	 * @param deadline
-	 * @throws IllegalValueException
+	/*
+	 * Creates a Schedule object from the Date object given. Date can be null.
 	 */
-	public Schedule(String timetoparse) throws IllegalValueException {
-		String[] stringArray = timetoparse.split(",");
-		if (stringArray.length > 2 || stringArray.length == 0) {
-			throw new IllegalValueException(MESSAGE_TIME_CONSTRAINTS);
-		}
-		if (stringArray.equals(" ")) {
-			this.time = new Timing(" ");
-			this.date = new Date(" ");
-		}
-		if (stringArray.length == 1) {
-			if (stringArray[0].contains("m")) {
-				this.time = new Timing(stringArray[0]);
-				this.date = new Date(" ");
-			} else {
-				this.time = new Timing(" ");
-				this.date = new Date(stringArray[0]);
-			}
-			this.value = stringArray[0];
-		} else {
-			this.time = new Timing(stringArray[0]);
-			this.date = new Date(stringArray[1]);
-			this.value = timetoparse;
-		}
-	}
+	public Schedule(Date dateObject) {
+        this.scheduleDate = dateObject;
+    }
 
-	@Override
+    @Override
 	public boolean equals(Object other) {
 		return other == this // short circuit if same object
 				|| (other instanceof Schedule // instanceof handles nulls
-						&& this.time.value.equals(((Schedule) other).time.value)
-						&& this.date.value.equals(((Schedule) other).date.value)); // state
+						&& this.toString().equals(((Schedule) other).toString())); // state
 																					// check
 	}
 
-	public Date getDate() {
+    /*
+	public SimpleDate getDate() {
 		return this.date;
 	}
 
@@ -62,23 +38,31 @@ public class Schedule {
 	public String getValue() {
 		return this.value;
 	}
+	*/
 
 	@Override
 	public int hashCode() {
-		return time.hashCode();
+		return this.scheduleDate.hashCode();
 	}
 
-	public void setDate(Date endTime) {
+	/*
+	public void setDate(SimpleDate endTime) {
 		this.date = endTime;
 	}
 
 	public void setTime(Timing startTime) {
 		this.time = startTime;
 	}
+	*/
 
 	@Override
 	public String toString() {
-		return this.time.value + this.date.value;
+	    if (this.scheduleDate == null) {
+	        return STRING_EMPTY;
+	    }
+        SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mma dd/MM/yyyy");
+        String dateString = dateFormat.format(this.scheduleDate);
+        return dateString;
 	}
 
 }

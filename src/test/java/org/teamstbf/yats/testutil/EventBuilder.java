@@ -37,7 +37,7 @@ public class EventBuilder {
 	}
 
 	public EventBuilder withEndTime(String timing) throws IllegalValueException {
-		this.task.setEndTime(new Schedule(timing));
+		this.task.setEndTime(new Schedule(org.teamstbf.yats.logic.parser.ParserUtil.parseSingleDate(timing)));
 		return this;
 	}
 
@@ -52,7 +52,7 @@ public class EventBuilder {
 	}
 
 	public EventBuilder withStartTime(String timing) throws IllegalValueException {
-		this.task.setStartTime(new Schedule(timing));
+		this.task.setStartTime(new Schedule(org.teamstbf.yats.logic.parser.ParserUtil.parseSingleDate(timing)));
 		return this;
 	}
 

@@ -35,31 +35,6 @@ public class AddCommand extends Command {
     private final Event toAdd;
 
     /**
-     * Creates an AddCommand using raw values.
-     * @param string2
-     * @param string
-     *
-     * @throws IllegalValueException if any of the raw values are invalid
-     */
-    public AddCommand(String name, String location, String period, String startTime,
-    		String endTime, String description, Set<String> tags)
-            throws IllegalValueException {
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(new Tag(tagName));
-        }
-        this.toAdd = new Event(
-                new Title(name),
-                new Location(location),
-                new Periodic(period),
-                new Schedule(startTime),
-                new Schedule(endTime),
-                new Description(description),
-                new UniqueTagList(tagSet)
-        );
-    }
-
-    /**
      * Creates an addCommand using a map of parameters
      * @param addParam
      * @throws IllegalValueException if any of the parameters are invalid
