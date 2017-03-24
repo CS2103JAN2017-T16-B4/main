@@ -8,7 +8,6 @@ import org.teamstbf.yats.commons.exceptions.IllegalValueException;
 import org.teamstbf.yats.logic.commands.exceptions.CommandException;
 import org.teamstbf.yats.model.item.Description;
 import org.teamstbf.yats.model.item.Event;
-import org.teamstbf.yats.model.item.IsDone;
 import org.teamstbf.yats.model.item.Location;
 import org.teamstbf.yats.model.item.Periodic;
 import org.teamstbf.yats.model.item.Schedule;
@@ -36,32 +35,6 @@ public class AddCommand extends Command {
     private final Event toAdd;
 
     /**
-     * Creates an AddCommand using raw values.
-     * @param string2
-     * @param string
-     *
-     * @throws IllegalValueException if any of the raw values are invalid
-     */
-    public AddCommand(String name, String location, String period, String startTime,
-    		String endTime, String description, Set<String> tags)
-            throws IllegalValueException {
-        final Set<Tag> tagSet = new HashSet<>();
-        for (String tagName : tags) {
-            tagSet.add(new Tag(tagName));
-        }
-        this.toAdd = new Event(
-                new Title(name),
-                new Location(location),
-                new Periodic(period),
-                new Schedule(startTime),
-                new Schedule(endTime),
-                new Description(description),
-                new UniqueTagList(tagSet),
-                new IsDone()
-        );
-    }
-
-    /**
      * Creates an addCommand using a map of parameters
      * @param addParam
      * @throws IllegalValueException if any of the parameters are invalid
@@ -83,6 +56,7 @@ public class AddCommand extends Command {
         } catch (UniqueEventList.DuplicateEventException e) {
             throw new CommandException(MESSAGE_DUPLICATE_EVENT);
         }
+
     }
 
 }

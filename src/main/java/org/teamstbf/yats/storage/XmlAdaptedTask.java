@@ -61,8 +61,8 @@ public class XmlAdaptedTask {
         title = source.getTitle().fullName;
         location = source.getLocation().value;
         period = source.getPeriod().value;
-        startTime = source.getStartTime().value;
-        endTime = source.getEndTime().value;
+        startTime = source.getStartTime().toString();
+        endTime = source.getEndTime().toString();
         description = source.getDescription().value;
         completed = source.getIsDone().value;
         tagged = new ArrayList<>();
@@ -84,8 +84,8 @@ public class XmlAdaptedTask {
         final Title title = new Title(this.title);
         final Location location = new Location(this.location);
         final Periodic period = new Periodic(this.period);
-        final Schedule startTime = new Schedule(this.startTime);
-        final Schedule endTime = new Schedule(this.endTime);
+        final Schedule startTime = new Schedule(org.teamstbf.yats.logic.parser.ParserUtil.parseSingleDate(this.startTime));
+        final Schedule endTime = new Schedule(org.teamstbf.yats.logic.parser.ParserUtil.parseSingleDate(this.endTime));
         final Description description = new Description(this.description);
         final UniqueTagList tags = new UniqueTagList(personTags);
         final IsDone isDone = new IsDone(this.completed);
