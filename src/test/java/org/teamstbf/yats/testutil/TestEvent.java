@@ -138,8 +138,7 @@ public class TestEvent implements ReadOnlyEvent {
 		isDone.markDone();
 	}
 
-	@Override
-	public boolean isTaskDone() {
-		return isDone.getIsDone();
+	public void setDone(IsDone done) {
+		this.isDone = done;
 	}
 }

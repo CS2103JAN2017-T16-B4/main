@@ -232,10 +232,6 @@ public class Event implements ReadOnlyEvent {
 		return this.isDone;
 	}
 
-	@Override
-	public boolean isTaskDone() {
-		return this.isDone.getIsDone();
-	}
 
 	@Override
 	public void markDone() {

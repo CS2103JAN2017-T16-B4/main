@@ -43,7 +43,7 @@ public class MarkDoneCommand extends EditCommand {
 			throw new CommandException(Messages.MESSAGE_INVALID_TASK_DISPLAYED_INDEX);
 		}
 		ReadOnlyEvent taskToEdit = lastShownList.get(filteredTaskListIndex);
-		if (taskToEdit.isTaskDone()) {
+		if (taskToEdit.getIsDone().getIsDone().equals(IsDone.ISDONE_DONE)) {
 			return new CommandResult(MESSAGE_ALR_MARKED);
 		}
 		Event editedTask = createEditedTask(taskToEdit, editTaskDescriptor);

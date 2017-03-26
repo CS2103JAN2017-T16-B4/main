@@ -12,31 +12,26 @@ public class IsDone {
 	public final static String ISDONE_NOTDONE = "No";
 	public final static String ISDONE_DONE = "Yes";
 
-	private boolean isDone;
-	public String value;
+	private String value;
 
 	public IsDone() {
-		this.isDone = false;
 		this.value = ISDONE_NOTDONE;
 	}
 
 	public IsDone(String done) throws IllegalValueException{
 		assert done != null;
 		this.value = done;
-		if (this.value == ISDONE_DONE) {
-			this.isDone = true;
+		if (this.value.equals(ISDONE_DONE)) {
 		}
-		if (this.value == ISDONE_NOTDONE) {
-			this.isDone = false;
+		if (this.value.equals(ISDONE_NOTDONE)) {
 		}
 	}
 
-	public boolean getIsDone() {
-		return isDone;
+	public String getIsDone() {
+		return this.value;
 	}
 
 	public void markDone() {
-		this.isDone = true;
 		this.value = ISDONE_DONE;
 	}
 }

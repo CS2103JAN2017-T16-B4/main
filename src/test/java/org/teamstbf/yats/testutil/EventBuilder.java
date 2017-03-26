@@ -2,6 +2,7 @@ package org.teamstbf.yats.testutil;
 
 import org.teamstbf.yats.commons.exceptions.IllegalValueException;
 import org.teamstbf.yats.model.item.Description;
+import org.teamstbf.yats.model.item.IsDone;
 import org.teamstbf.yats.model.item.Location;
 import org.teamstbf.yats.model.item.Periodic;
 import org.teamstbf.yats.model.item.Schedule;
@@ -61,6 +62,11 @@ public class EventBuilder {
 		for (String tag : tags) {
 			task.getTags().add(new Tag(tag));
 		}
+		return this;
+	}
+
+	public EventBuilder setIsDone(String done) throws IllegalValueException {
+		task.setDone(new IsDone(done));
 		return this;
 	}
 
