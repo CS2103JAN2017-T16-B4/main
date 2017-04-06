@@ -5,8 +5,6 @@ import java.util.Set;
 //@@author A0138952W
 public class ListCommandLocation extends ListCommand {
 
-	public static final String MESSAGE_SUCCESS = "Listed all tasks by location";
-
 	private final Set<String> keywords;
 
 	public ListCommandLocation(Set<String> keywords) {

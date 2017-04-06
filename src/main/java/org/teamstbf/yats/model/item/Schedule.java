@@ -14,6 +14,7 @@ public class Schedule {
 
 	private Date scheduleDate;
 
+	// @@author A0116219L
 	/*
 	 * Creates a Schedule object from the Date object given. Date can be null.
 	 */
@@ -36,7 +37,7 @@ public class Schedule {
 		return other == this // short circuit if same object
 				|| (other instanceof Schedule // instanceof handles nulls
 						&& this.toString().equals(((Schedule) other).toString())); // state
-																					// check
+		// check
 	}
 
 	/*
@@ -61,8 +62,13 @@ public class Schedule {
 		} else if (this.scheduleDate.equals("")) {
 			return STRING_EMPTY;
 		}
+
 		String dateString = FORMATTER_DATE.format(this.scheduleDate);
 		return dateString;
+	}
+
+	public Date getDate() {
+		return this.scheduleDate;
 	}
 
 }

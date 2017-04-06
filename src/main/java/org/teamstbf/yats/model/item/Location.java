@@ -10,8 +10,6 @@ public class Location {
 
 	public final String value;
 
-	private String locationIndicator;
-
 	/**
 	 * Validates given location.
 	 *
@@ -25,11 +23,6 @@ public class Location {
 			throw new IllegalValueException(MESSAGE_LOCATION_CONSTRAINTS);
 		}
 		this.value = trimmedLocation;
-		this.locationIndicator = "location";
-	}
-
-	public String getLocationIndicator() {
-		return locationIndicator;
 	}
 
 	@Override
@@ -42,7 +35,7 @@ public class Location {
 		return other == this // short circuit if same object
 				|| (other instanceof Location // instanceof handles nulls
 						&& this.value.equals(((Location) other).value)); // state
-																			// check
+		// check
 	}
 
 	@Override

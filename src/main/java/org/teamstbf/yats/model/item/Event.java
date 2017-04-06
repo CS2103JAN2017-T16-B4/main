@@ -30,6 +30,7 @@ public class Event implements ReadOnlyEvent {
 	private UniqueTagList tags;
 	private Integer priority;
 
+	// @@author A0116219L
 	/**
 	 * Creates an Event object using map of parameters, only name is compulsory,
 	 * others are optional
@@ -113,7 +114,6 @@ public class Event implements ReadOnlyEvent {
 	}
 
 	@Override
-
 	public boolean equals(Object other) {
 		return other == this // short circuit if same object
 				|| (other instanceof ReadOnlyEvent // instanceof handles nulls
@@ -121,43 +121,36 @@ public class Event implements ReadOnlyEvent {
 	}
 
 	@Override
-
 	public Description getDescription() {
 		return description;
 	}
 
 	@Override
-
 	public Schedule getEndTime() {
 		return endTime;
 	}
 
 	@Override
-
 	public Location getLocation() {
 		return location;
 	}
 
 	@Override
-
 	public Schedule getStartTime() {
 		return startTime;
 	}
 
 	@Override
-
 	public UniqueTagList getTags() {
 		return new UniqueTagList(tags);
 	}
 
 	@Override
-
 	public Title getTitle() {
 		return name;
 	}
 
 	@Override
-
 	public int hashCode() {
 		// use this method for custom fields hashing instead of implementing
 		// your own

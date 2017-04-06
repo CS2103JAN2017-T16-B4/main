@@ -9,11 +9,11 @@ import org.teamstbf.yats.model.item.IsDone;
 import org.teamstbf.yats.model.item.ReadOnlyEvent;
 import org.teamstbf.yats.model.item.UniqueEventList;
 
+// @@author A0139448U
 /**
  *
  * Marks an existing task as done in the task scheduler.
  */
-// @@author A0139448U
 public class MarkDoneCommand extends Command {
 
 	public final int targetIndex;
@@ -47,6 +47,7 @@ public class MarkDoneCommand extends Command {
 			return new CommandResult(MESSAGE_ALR_MARKED);
 		}
 		try {
+			markedTask.getIsDone().markDone();
 			model.updateEvent(targetIndex, markedTask);
 		} catch (UniqueEventList.DuplicateEventException dpe) {
 			throw new CommandException(MESSAGE_DUPLICATE_TASK);

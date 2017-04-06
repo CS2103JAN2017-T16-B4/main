@@ -5,8 +5,6 @@ import java.util.Set;
 //@@author A0138952W
 public class ListCommandDeadline extends ListCommand {
 
-	public static final String MESSAGE_SUCCESS = "Listed all tasks by deadline";
-
 	private final Set<String> keywords;
 
 	public ListCommandDeadline(Set<String> keywords) {
